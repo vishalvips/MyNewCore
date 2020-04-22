@@ -1,0 +1,35 @@
+﻿@model IEnumerable<NewCoreWebApp.Models.DepartmentModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p class="right" style="text-align:right">
+    <a asp-action="Create" class="btn btn-primary">Add Department</a>
+</p>
+<h3 class="text-center">LIST OF DEPARTMENTS</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentName)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.DepartmentId">Edit</a>
+                <a asp-action="Details" class="btn btn-outline-dark" asp-route-id="@item.DepartmentId">Employee List</a>
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.DepartmentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
